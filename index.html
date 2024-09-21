@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- START PAGE -->
-    <div id="start-page" class="page start-page roboto-regular visible">
+    <div id="start-page" class="page start-page roboto-regular">
         <img src="./question.png" alt="Mario Question Block" width="50px" height="50px">
         <div style="height: 20px;"></div>
         <h1 class="press-start-2p-regular">Welcome to Quizzy!</h1>
@@ -37,7 +37,7 @@
             <!-- Score -->
             <div class="header__container">
                 <span class="material-symbols-outlined">emoji_events</span>
-                <span class="press-start-2p-regular">0</span>
+                <span class="press-start-2p-regular score">0</span>
             </div>
         </header>
         <!-- Quiz -->
@@ -58,12 +58,12 @@
                 </div>
                 <!-- Actions -->
                 <div class="actions">
-                    <button class="press-start-2p-regular button--pushable error--button">
+                    <button id="stop-btn" class="press-start-2p-regular button--pushable error--button">
                         <span class="button--front error--button">
                             <span class="material-symbols-outlined">close</span> Stop
                         </span> 
                     </button>
-                    <button class="press-start-2p-regular button--pushable">
+                    <button id="next-btn" class="press-start-2p-regular button--pushable">
                         <span class="button--front">
                             Next <span class="material-symbols-outlined">arrow_forward</span>
                         </span> 
@@ -71,20 +71,20 @@
                 </div>
             </div>
         </main>
-        <!-- RESULT PAGE -->
-        <div id="result-page" class="page result-page hidden">
-                <h1 class="press-start-2p-regular">Congratulations!</h1>
-                <p class="label">You have completed the quiz!</p>
-                <div style="height: 20px;"></div>
-                <div class="result-page__score">
-                    <span class="material-symbols-outlined">emoji_events</span>
-                    <span class="press-start-2p-regular">0</span>
-                </div>
-                <div style="height: 20px;"></div>
-                <button class="press-start-2p-regular button--pushable">
-                    <span class="button--front">Restart Quiz</span>
-                </button>
-        </div>
+    </div>
+    <!-- RESULT PAGE -->
+    <div id="result-page" class="page result-page hidden">
+            <h1 class="press-start-2p-regular">Congratulations!</h1>
+            <p class="label">You have completed the quiz!</p>
+            <div style="height: 20px;"></div>
+            <div class="result-page__score">
+                <span class="material-symbols-outlined">emoji_events</span>
+                <span class="press-start-2p-regular score">0</span>
+            </div>
+            <div style="height: 20px;"></div>
+            <button class="press-start-2p-regular button--pushable">
+                <span class="button--front">Restart Quiz</span>
+            </button>
     </div>
 </body>
 </html>

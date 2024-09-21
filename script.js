@@ -96,6 +96,10 @@ const startQuizBtn = document.getElementById('start-quiz-btn');
 const quizPage = document.getElementById('quiz-page');
 const question = document.getElementById('question');
 const options = document.querySelectorAll('.quiz__option');
+const nextBtn = document.getElementById('next-btn');
+const stopBtn = document.getElementById('stop-btn');
+const scoreDisplay = document.querySelectorAll('.score');
+
 
 //3. Result Page Selectors
 const resultPage = document.getElementById('result-page');
@@ -103,13 +107,20 @@ const resultPage = document.getElementById('result-page');
 //-----------------Event Listeners-----------------
 //1. Start Page Event Listeners
 startQuizBtn.addEventListener('click', startQuiz);
+
+//2. Quiz Page Event Listeners
 options.forEach(option => {
     option.addEventListener('click', checkAnswer);
 });
 
+nextBtn.addEventListener('click', nextQuestion);
+stopBtn.addEventListener('click', showResult);
+
 //-----------------Main Functionality-----------------
 //1. Start Page Functionality
 function startQuiz() {
+    currentQuestion = 0;
+    score = 0;
     startPage.classList.add('hidden');
     quizPage.classList.remove('hidden');
     loadQuestion();
@@ -130,15 +141,14 @@ function checkAnswer(e) {
     }else{
         e.target.classList.add('button--incorrect');
     }
-
-    setTimeout(() => {
-        nextQuestion(e);
-    }, 2000)
+    displayScore();
 }
 
 function nextQuestion(e) {
-    e.target.classList.remove('button--correct');
-    e.target.classList.remove('button--incorrect');
+    options.forEach(option => {
+        option.classList.remove('button--correct');
+        option.classList.remove('button--incorrect');
+    });
     currentQuestion++;
     if (currentQuestion < dummyData.length) {
         loadQuestion();
@@ -147,3 +157,15 @@ function nextQuestion(e) {
     }
 }
 
+function displayScore() {
+    scoreDisplay.forEach(display => {
+        display.textContent = score;
+    });
+};
+
+//3. Result Page Functionality
+function showResult() {
+    quizPage.classList.add('hidden');
+    resultPage.classList.remove('hidden');
+    displayScore();
+}

@@ -103,6 +103,7 @@ const scoreDisplay = document.querySelectorAll('.score');
 
 //3. Result Page Selectors
 const resultPage = document.getElementById('result-page');
+const restartBtn = document.getElementById('restart-btn');
 
 //-----------------Event Listeners-----------------
 //1. Start Page Event Listeners
@@ -116,6 +117,9 @@ options.forEach(option => {
 nextBtn.addEventListener('click', nextQuestion);
 stopBtn.addEventListener('click', showResult);
 
+//3. Result Page Event Listeners
+restartBtn.addEventListener('click', startQuiz);
+
 //-----------------Main Functionality-----------------
 //1. Start Page Functionality
 function startQuiz() {
@@ -123,6 +127,11 @@ function startQuiz() {
     score = 0;
     startPage.classList.add('hidden');
     quizPage.classList.remove('hidden');
+    options.forEach(option => {
+        option.classList.remove('button--correct');
+        option.classList.remove('button--incorrect');
+    });
+    displayScore();
     loadQuestion();
 }
 
@@ -169,3 +178,4 @@ function showResult() {
     resultPage.classList.remove('hidden');
     displayScore();
 }
+

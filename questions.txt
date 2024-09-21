@@ -1,0 +1,82 @@
+const dummyData = [
+    {
+        question: "What does 'NaN' stand for in JavaScript?",
+        options: [
+            "Not a Number",
+            "Not a Null",
+            "Name a Number",
+            "Number a Number"
+        ],
+        answer: "Not a Number"
+    },
+    {
+        question: "Which of the following is a JavaScript data type?",
+        options: [
+            "String",
+            "Boolean",
+            "Undefined",
+            "All of the above"
+        ],
+        answer: "All of the above"
+    },
+    {
+        question: "What keyword is used to declare a variable in JavaScript?",
+        options: [
+            "var",
+            "let",
+            "const",
+            "All of the above"
+        ],
+        answer: "All of the above"
+    },
+    {
+        question: "Which method is used to convert a JSON string into a JavaScript object?",
+        options: [
+            "JSON.stringify()",
+            "JSON.parse()",
+            "JSON.object()",
+            "JSON.convert()"
+        ],
+        answer: "JSON.parse()"
+    },
+    {
+        question: "What is the output of 'typeof null' in JavaScript?",
+        options: [
+            "null",
+            "object",
+            "undefined",
+            "NaN"
+        ],
+        answer: "object"
+    },
+    {
+        question: "Which of the following is NOT a JavaScript framework?",
+        options: [
+            "React",
+            "Vue",
+            "Django",
+            "Angular"
+        ],
+        answer: "Django"
+    },
+    {
+        question: "How can you create a function in JavaScript?",
+        options: [
+            "function myFunction() {}",
+            "function:myFunction() {}",
+            "create myFunction() {}",
+            "function = myFunction() {}"
+        ],
+        answer: "function myFunction() {}"
+    },
+    {
+        question: "What does the 'this' keyword refer to in JavaScript?",
+        options: [
+            "The current object",
+            "The previous object",
+            "The global object",
+            "None of the above"
+        ],
+        answer: "The current object"
+    }
+];

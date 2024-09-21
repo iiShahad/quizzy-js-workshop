@@ -176,7 +176,7 @@ function nextQuestion(e) {
         option.classList.remove('button--incorrect');
     });
     currentQuestion++;
-    if (currentQuestion < dummyData.length) {
+    if (currentQuestion < dummyData.length - 1) {
         loadQuestion();
     } else {
         showResult();

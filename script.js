@@ -87,6 +87,7 @@ let currentQuestion = 0;
 let score = 0;
 let time = 60;
 let shuffledData;
+let timerInterval;
 
 
 //-----------------Selectors-----------------
@@ -142,15 +143,13 @@ function startQuiz() {
 
 function startTimer() {
     timer.textContent = formatSeconds(time);
-    let timerInterval = setInterval(() => {
+    timerInterval = setInterval(() => {
         time--;
         if (time <= 0) {
-            clearInterval(timerInterval);
             showResult();
             return;
         }
         timer.textContent = formatSeconds(time);
-        console.log(time);   
     }, 1000);
 }
 
@@ -204,6 +203,7 @@ function displayScore() {
 
 //3. Result Page Functionality
 function showResult() {
+    clearInterval(timerInterval);
     quizPage.classList.add('hidden');
     resultPage.classList.remove('hidden');
     displayScore();

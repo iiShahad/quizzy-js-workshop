@@ -86,6 +86,7 @@ const dummyData = [
 let currentQuestion = 0;
 let score = 0;
 let time = 60;
+let shuffledData;
 
 
 //-----------------Selectors-----------------
@@ -127,6 +128,7 @@ function startQuiz() {
     currentQuestion = 0;
     score = 0;
     time = 60;
+    shuffledData = shuffle(dummyData.slice()); //slice() is used to create a copy of the array
     startPage.classList.add('hidden');
     quizPage.classList.remove('hidden');
     options.forEach(option => {
@@ -154,14 +156,14 @@ function startTimer() {
 
 //2. Quiz Page Functionality
 function loadQuestion() {
-    question.textContent = dummyData[currentQuestion].question;
+    question.textContent = shuffledData[currentQuestion].question;
     options.forEach((option, index) => {
-        option.textContent = dummyData[currentQuestion].options[index];
+        option.textContent = shuffledData[currentQuestion].options[index];
     });
 }
 
 function checkAnswer(e) {
-    if (e.target.textContent === dummyData[currentQuestion].answer) {
+    if (e.target.textContent === shuffledData[currentQuestion].answer) {
         score++;
         e.target.classList.add('button--correct');
     }else{
@@ -176,7 +178,7 @@ function nextQuestion(e) {
         option.classList.remove('button--incorrect');
     });
     currentQuestion++;
-    if (currentQuestion < dummyData.length - 1) {
+    if (currentQuestion < shuffledData.length - 1) {
         loadQuestion();
     } else {
         showResult();
@@ -207,3 +209,13 @@ function formatSeconds(seconds) {
 
     return `${formattedMinutes}:${formattedSeconds}`;
  };
+
+ function shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        let j = Math.floor(Math.random() * i);
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+ }

@@ -139,6 +139,7 @@ function startQuiz() {
         option.classList.remove('button--incorrect');
     });
     updateProgressBar();
+    resetOptions();
     displayScore();
     loadQuestion();
     startTimer();
@@ -183,13 +184,17 @@ function disableOptions() {
     });
 }
 
-function nextQuestion(e) {
+function resetOptions() {
     options.forEach(option => {
         option.classList.remove('button--correct');
         option.classList.remove('button--incorrect');
         option.disabled = false;
         option.style.pointerEvents = 'auto';
     });
+}
+
+function nextQuestion(e) {
+    resetOptions();
     currentQuestion++;
     if (currentQuestion < shuffledData.length - 1) {
         updateProgressBar();

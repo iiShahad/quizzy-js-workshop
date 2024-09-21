@@ -163,6 +163,7 @@ function loadQuestion() {
 }
 
 function checkAnswer(e) {
+    disableOptions();
     if (e.target.textContent === shuffledData[currentQuestion].answer) {
         score++;
         e.target.classList.add('button--correct');
@@ -172,10 +173,20 @@ function checkAnswer(e) {
     displayScore();
 }
 
+
+function disableOptions() {
+    options.forEach(option => {
+        option.disabled = true;
+        option.style.pointerEvents = 'none'; 
+    });
+}
+
 function nextQuestion(e) {
     options.forEach(option => {
         option.classList.remove('button--correct');
         option.classList.remove('button--incorrect');
+        option.disabled = false;
+        option.style.pointerEvents = 'auto';
     });
     currentQuestion++;
     if (currentQuestion < shuffledData.length - 1) {

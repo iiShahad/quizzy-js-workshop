@@ -126,6 +126,7 @@ restartBtn.addEventListener('click', startQuiz);
 function startQuiz() {
     currentQuestion = 0;
     score = 0;
+    time = 60;
     startPage.classList.add('hidden');
     quizPage.classList.remove('hidden');
     options.forEach(option => {
@@ -147,6 +148,7 @@ function startTimer() {
             return;
         }
         timer.textContent = formatSeconds(time);
+        console.log(time);   
     }, 1000);
 }
 

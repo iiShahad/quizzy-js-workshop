@@ -151,6 +151,10 @@ main {
 
 /* QUIZ PAGE */
 /* HEADER STYLES */
+.quiz-page{
+    height: 100vh;
+}
+
 .header {
     font-family: "Silkscreen", sans-serif;
     background-color: var(--dark-background-color);

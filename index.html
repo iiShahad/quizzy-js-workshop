@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- START PAGE -->
-    <div class="page start-page roboto-regular hidden">
+    <div id="start-page" class="page start-page roboto-regular visible">
         <img src="./question.png" alt="Mario Question Block" width="50px" height="50px">
         <div style="height: 20px;"></div>
         <h1 class="press-start-2p-regular">Welcome to Quizzy!</h1>
@@ -20,13 +20,13 @@
         </p>
         <div style="height: 20px;"></div>
         <!-- Start Button -->
-        <button class="press-start-2p-regular button--pushable" onclick="startQuiz()">
+        <button id="start-quiz-btn" class="press-start-2p-regular button--pushable">
             <span class="button--front">Start Quiz</span>
         </button>
     </div>
 
     <!-- QUIZ PAGE -->
-    <div class="page visible">
+    <div id="quiz-page" class="page hidden">
         <!-- Header -->
         <header class="header">
             <!-- Timer -->
@@ -72,7 +72,7 @@
             </div>
         </main>
         <!-- RESULT PAGE -->
-        <div class="page result-page hidden">
+        <div id="result-page" class="page result-page hidden">
                 <h1 class="press-start-2p-regular">Congratulations!</h1>
                 <p class="label">You have completed the quiz!</p>
                 <div style="height: 20px;"></div>

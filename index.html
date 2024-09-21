@@ -43,17 +43,24 @@
         <!-- Quiz -->
         <main>
             <div class="quiz roboto-regular">
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-bar__outline">
+                        <div id="progress-bar" class="progress-bar__fill"></div>
+                    </div>
+                    <span id="progress" class="press-start-2p-regular progress-bar__text">0%</span>
+                </div>
                 <!-- Quiz Container -->
                 <div class="quiz__container">
                     <div class="quiz__question">
                         <label>Question:</label>
-                        <span id="question">What is the capital of France?</span>
+                        <span id="question">Question goes here</span>
                     </div>
                     <div class="quiz__options">
-                        <button class="quiz__option button button--outlined">Paris</button>
-                        <button class="quiz__option button button--outlined">Paris</button>
-                        <button class="quiz__option button button--outlined">Paris</button>
-                        <button class="quiz__option button button--outlined">Paris</button>
+                        <button class="quiz__option button button--outlined">Option 1</button>
+                        <button class="quiz__option button button--outlined">Option 2</button>
+                        <button class="quiz__option button button--outlined">Option 3</button>
+                        <button class="quiz__option button button--outlined">Option 4</button>
                     </div>
                 </div>
                 <!-- Actions -->
@@ -72,6 +79,7 @@
             </div>
         </main>
     </div>
+
     <!-- RESULT PAGE -->
     <div id="result-page" class="page result-page hidden">
             <h1 class="press-start-2p-regular">Congratulations!</h1>

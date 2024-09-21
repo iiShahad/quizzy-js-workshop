@@ -182,6 +182,36 @@ main {
     padding: 0 20px;
 }
 
+/* PROGRESS BAR*/
+.progress-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 20px;
+}
+
+.progress-bar__outline{
+    background-color: var(--dark-background-color);
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.progress-bar__fill{
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.progress-bar__text{
+    color: var(--text-color);
+}
+
 /* QUIZ STYLES */
 .quiz {
     display: flex;

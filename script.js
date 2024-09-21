@@ -103,6 +103,8 @@ const nextBtn = document.getElementById('next-btn');
 const stopBtn = document.getElementById('stop-btn');
 const scoreDisplay = document.querySelectorAll('.score');
 const timer = document.getElementById('timer');
+const progressBar = document.getElementById('progress-bar');
+const progress = document.getElementById('progress');
 
 //3. Result Page Selectors
 const resultPage = document.getElementById('result-page');
@@ -136,6 +138,7 @@ function startQuiz() {
         option.classList.remove('button--correct');
         option.classList.remove('button--incorrect');
     });
+    updateProgressBar();
     displayScore();
     loadQuestion();
     startTimer();
@@ -189,6 +192,7 @@ function nextQuestion(e) {
     });
     currentQuestion++;
     if (currentQuestion < shuffledData.length - 1) {
+        updateProgressBar();
         loadQuestion();
     } else {
         showResult();
@@ -200,6 +204,13 @@ function displayScore() {
         display.textContent = score;
     });
 };
+
+
+function updateProgressBar() {
+    let currentProgress = (currentQuestion + 1) / shuffledData.length * 100;
+    progressBar.style.width = `${currentProgress}%`;
+    progress.textContent = `${Math.ceil(currentProgress)}%`;
+}
 
 //3. Result Page Functionality
 function showResult() {

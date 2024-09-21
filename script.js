@@ -85,6 +85,7 @@ const dummyData = [
 //-----------------Global Variables-----------------
 let currentQuestion = 0;
 let score = 0;
+let time = 60;
 
 
 //-----------------Selectors-----------------
@@ -99,7 +100,7 @@ const options = document.querySelectorAll('.quiz__option');
 const nextBtn = document.getElementById('next-btn');
 const stopBtn = document.getElementById('stop-btn');
 const scoreDisplay = document.querySelectorAll('.score');
-
+const timer = document.getElementById('timer');
 
 //3. Result Page Selectors
 const resultPage = document.getElementById('result-page');
@@ -133,6 +134,20 @@ function startQuiz() {
     });
     displayScore();
     loadQuestion();
+    startTimer();
+}
+
+function startTimer() {
+    timer.textContent = formatSeconds(time);
+    let timerInterval = setInterval(() => {
+        time--;
+        if (time <= 0) {
+            clearInterval(timerInterval);
+            showResult();
+            return;
+        }
+        timer.textContent = formatSeconds(time);
+    }, 1000);
 }
 
 //2. Quiz Page Functionality
@@ -179,3 +194,14 @@ function showResult() {
     displayScore();
 }
 
+
+//-----------------Utility-----------------
+function formatSeconds(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
+
+    let formattedMinutes = String(minutes).padStart(2, '0');
+    let formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+    return `${formattedMinutes}:${formattedSeconds}`;
+ };
